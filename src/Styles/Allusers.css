@@ -1,0 +1,63 @@
+.List1{
+    background: #0c1a13;
+    width: 250px;
+    height: 350px;
+    font-size: 15px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+  
+  }
+
+
+  .right1 {
+    right: 0;
+    background:rgb(180, 177, 177);
+    width: 86%;
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    gap: 2rem;
+    justify-content: center;
+  }
+
+  .inoputtrack111{
+
+    box-sizing: border-box;
+    display: flex;
+    align-items: flex-start;
+    padding: 10px 8px 10px 10px;
+    gap: 10px;
+    width: 200px;
+    height: 40px;
+    background: #2e3433;
+    border: 1px solid rgba(78, 95, 131, 0.7);
+    border-radius: 8px;
+    flex: none;
+    font-size: 15px;
+    outline: none;
+    color: #fff;
+    }
+
+  .popp{
+    background: #0c1a13;
+    height: 25vh;
+    width: 50vh;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    color: red;
+    
+}

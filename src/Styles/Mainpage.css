@@ -1,0 +1,169 @@
+.inoputtrack{
+
+    box-sizing: border-box;
+    
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 10px 8px 10px 10px;
+    gap: 10px;
+    width: 512px;
+    height: 40px;
+    background: #646f6d;
+    border: 1px solid rgba(78, 95, 131, 0.7);
+    border-radius: 4px;
+    flex: none;
+    order: 1;
+    outline: none;
+    flex-grow: 0;
+    color: #000;
+    }
+    .navv{
+        margin-top: -10px;
+    }
+
+    .form{
+        justify-content: center;
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+        background: #0c1a13;
+        height: 800px;
+    }
+
+    span{
+        color: #fff;
+    }
+
+    .ppp{
+        color: #fff;
+        justify-content: center;
+        align-items: center;
+        display: flex;
+    }
+    .inoputtrack1{
+
+        box-sizing: border-box;
+        
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        padding: 10px 8px 10px 10px;
+        gap: 10px;
+        width: 512px;
+        height: 70px;
+        background: #646f6d;
+        border: 1px solid rgba(78, 95, 131, 0.7);
+        border-radius: 4px;
+        flex: none;
+        order: 1;
+        outline: none;
+        flex-grow: 0;
+        color: #000;
+        }
+    @media only screen and (min-width: 320px) and (max-width: 576px){
+
+        .inoputtrack{
+
+            box-sizing: border-box;
+            
+            display: flex;
+            flex-direction: row;
+            align-items: flex-start;
+            padding: 10px 8px 10px 10px;
+            gap: 10px;
+            width: 312px;
+            height: 40px;
+            background: #646f6d;
+            border: 1px solid rgba(78, 95, 131, 0.7);
+            border-radius: 4px;
+            flex: none;
+            order: 1;
+            outline: none;
+            flex-grow: 0;
+            color: #000;
+            }
+            .inoputtrack1{
+
+                box-sizing: border-box;
+                
+                display: flex;
+                flex-direction: row;
+                align-items: flex-start;
+                padding: 10px 8px 10px 10px;
+                gap: 10px;
+                width: 312px;
+                height: 70px;
+                background: #646f6d;
+                border: 1px solid rgba(78, 95, 131, 0.7);
+                border-radius: 4px;
+                flex: none;
+                order: 1;
+                outline: none;
+                flex-grow: 0;
+                color: #000;
+                }
+        
+        
+            .form{
+                justify-content: center;
+                align-items: center;
+                display: flex;
+                flex-direction: column;
+                background: #0c1a13;
+                height: 900px;
+            }        
+            span{
+                color: #fff;
+                font-size: 20px;
+            }
+            .ppp{
+                color: #fff;
+                justify-content: center;
+                align-items: center;
+                display: flex;
+                font-size: 16px;
+            }
+        
+    }
+
+
+button{
+    background-color: #ffffff;
+    border-radius: 5px;
+    height: 50px;
+    width: 180px;
+    outline: none;
+    border: none;
+    color: #0c1a13;
+    font-size: 15px;
+    background-size:  0% 3px;
+    cursor: pointer;
+    transition: background-color 300ms ease;
+  }
+
+
+  .pop{
+    background:rgb(180, 177, 177);
+    height: 25vh;
+    width: 50vh;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    
+}
+
+.bttn{
+    background: #fff;
+    height: 5vh;
+    width: 5vh;
+    cursor: pointer;
+}
