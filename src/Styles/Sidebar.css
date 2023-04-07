@@ -155,8 +155,23 @@
     .ava-space{
       display: flex;
       gap: 1.3rem;
+      cursor: pointer;
+      
 
     }
+
+
+    .ava-space1{
+      display: flex;
+      flex-direction: column;
+      gap: 3rem;
+      cursor: pointer;
+      float: right;
+      /* position: absolute; */
+  
+
+    }
+    
     .ava-space:hover{
       background: #2e3433;
       height: 50px;
@@ -165,15 +180,24 @@
     }
 
     .chati{
-      background: #0c1a13;
+      background: #0c1a13 none repeat scroll 0 0;
       width: 700px;
       height: 650px;
       font-size: 15px;
       border-radius: 10px;
       padding: 15px;
-      padding-top: 25px;
+
       justify-content: center;
-      box-shadow: inset 10px 10px 10px rgb(5, 5, 5);
+      display: flex;
+      flex-direction: column;
+      gap: 3rem;
+      box-shadow: inset 10px 10px 10px rgb(5, 5, 5) none repeat scroll 0 0 ;
+      /* position: absolute; */
+      overflow-y:scroll;
+      position: relative;
+      z-index: 5;
+      overflow-x: hidden;
+      
     }
     .chat{
       display: flex;
@@ -189,11 +213,12 @@
       display: flex;
       position: absolute;
       bottom: 0;
-      top: 38rem;
+      top: 35rem;
       padding: 15px;
       gap: 1rem;
       justify-content: center;
       align-items: center;
+      position: fixed;
      
     }
     .baseline1{
@@ -221,4 +246,45 @@
     .program_title{
   padding: 10px;
   color: white;
+}
+
+.bttn1{
+  background: none;
+  height: 5vh;
+  width: 5vh;
+  cursor: pointer;
+}
+
+
+.List2{
+  background: rgb(180, 177, 177) none repeat scroll 0 0;
+  width: 250px;
+  height: 50px;
+  font-size: 5px;
+  border-radius: 5px;
+  display: flex;
+  flex-wrap: wrap;
+  height: auto;
+  gap: 1rem;
+  flex-direction: column;
+  overflow: auto;
+  word-break:normal;
+  position: absolute;
+
+}
+
+.grid11{
+  column-gap: 30rem;
+  display: grid;
+  align-items: flex-start;
+  justify-content: flex-start;
+  margin-left: 60%;
+  margin-top: -30%;
+
+
+}
+
+.gap{
+  gap: 3rem;
+  display: flex;
 }

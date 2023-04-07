@@ -95,14 +95,14 @@ console.log(tx);
 
 <div className='List1'>
 
-<h3>{datas.name}</h3>
-<h3>{datas.UsersAddr}</h3>
+<h3>{datas?.name}</h3>
+<h3>{datas?.UsersAddr}</h3>
 </div>
 
 <div className='List1'>
 
-<h3>{datas.name}</h3>
-<h3>{datas.UsersAddr}</h3>
+<h3>{datas?.name}</h3>
+<h3>{datas?.UsersAddr}</h3>
 
 
 </div>

@@ -22,12 +22,15 @@ export default function Sidebar() {
 
 useEffect( () => {
    getMyFtiends()
-})
+   sendMessage()
+}, [])
 
 const ethers = require("ethers");
 const [name , setName] = useState("")
+const [message , setMessage] = useState("")
 const [click, setClick] = useState(false)
 const [data, setData] = useState(null)
+const [datas, setDatas] = useState("")
 const {title} = useContext(Context);
 const {walletAddress} = useContext(Context)
 const {userName} = useContext(Context)
@@ -63,6 +66,39 @@ async function getMyFtiends() {
  }
 
 
+async function sendMessage() {
+   try {
+      
+     let provider = new ethers.providers.Web3Provider(window.ethereum);
+     let signer =   provider.getSigner();
+     // let signature = await signer.signMessage("");
+     let  contract = new ethers.Contract(CA,  abi, signer);
+     let walletAddress = await signer.getAddress();
+     
+   const account = await window.ethereum.request({ method: 'eth_requestAccounts' });
+      const  user = await contract.sendMessage( datas,name)
+      setMessage(user)
+      //  setData(user)
+      console.log( datas.addr)
+
+
+   
+   const tx =  {
+   from: walletAddress,
+   to: CA,
+   gaslimit: 850000000000,
+   gasprice: 50000000000,
+   
+   };
+   console.log(tx);
+   } catch (err) {
+ 
+   //   setRegError(err)
+   }
+ }
+
+
+
 if(walletAddress.length > 0 && userName.length > 0 ) {
 return (
 
@@ -80,22 +116,22 @@ return (
           
                <ul>
             <li>
-               <NavLink to="/chats" className='Link'><Typography variant="body"  color='#fff' component="body">  <RiMessage2Fill  style={{fontSize: "20px", color:'#ff'}} /> Chat </Typography></NavLink>
+               <NavLink style={{textDecoration: "none"}} to="/chats" className='Link'><Typography variant="body"  color='#fff' component="body">  <RiMessage2Fill  style={{fontSize: "20px", color:'#ff'}} /> Chat </Typography></NavLink>
             </li>
            
             <li>
-               <NavLink to="/allusers" className='Link'><Typography variant="body"  color='#fff' component="body">  <IoPersonAddSharp   style={{fontSize: "20px", color:'#ff'}} /> All Users</Typography></NavLink>
+               <NavLink style={{textDecoration: "none"}} to="/allusers" className='Link'><Typography variant="body"  color='#fff' component="body">  <IoPersonAddSharp   style={{fontSize: "20px", color:'#ff'}} /> All Users</Typography></NavLink>
             </li>
            
             <li>
-               <NavLink className='Link'><Typography variant="body"  color='#fff' component="body">  <MdSearch  style={{fontSize: "20px", color:'#ff'}}  /> Search</Typography></NavLink>
+               <NavLink style={{textDecoration: "none"}} className='Link'><Typography variant="body"  color='#fff' component="body">  <MdSearch  style={{fontSize: "20px", color:'#ff'}}  /> Search</Typography></NavLink>
             </li>
            
             <li>
-               <NavLink to="/add" className='Link'><Typography variant="body"  color='#fff' component="body">  <FaUserFriends  style={{fontSize: "20px", color:'#ff'}}  /> ADD friend</Typography></NavLink>
+               <NavLink style={{textDecoration: "none"}} to="/add" className='Link'><Typography variant="body"  color='#fff' component="body">  <FaUserFriends  style={{fontSize: "20px", color:'#ff'}}  /> ADD friend</Typography></NavLink>
             </li>
             <li>
-               <NavLink className='Link'><Typography variant="body"  color='#fff' component="body">  <MdDelete  style={{fontSize: "20px", color:'#ff'}}  /> Delete friend</Typography></NavLink>
+               <NavLink style={{textDecoration: "none"}} className='Link'><Typography variant="body"  color='#fff' component="body">  <MdDelete  style={{fontSize: "20px", color:'#ff'}}  /> Delete friend</Typography></NavLink>
             </li>
             </ul>
 
@@ -108,6 +144,7 @@ return (
 <div className="split right">
 
    <div className='chat'>
+   <Typography variant="h5" color='#fff'  component="h6">  <small style={{color: "#fff"}}>  </small></Typography> 
    <div className='chati'>
 
       {/* //// */}
@@ -121,7 +158,9 @@ return (
    </div>
    <div className='baseline1'>
       <div  className='program_title'>
-      <Typography variant="h5" color='#fff'  component="h6">  <small style={{color: "#fff"}}>  {name}</small></Typography> 
+      <Typography variant="h5" color='#fff'  component="h6">  <small style={{color: "#fff"}}> Hey, {userName} welcome to Web3chatApp. In other to start chatting you need to have a friend, please go to 
+<NavLink style={{textDecoration: ""}} to="/allusers" className='Link'><Typography variant="body"  color='#0c1a13' component="body"> All Users</Typography></NavLink>
+       to see available users to add after you have done that your friend(s) should appear at the left. you can then click on the friend you wish to chat with.<br /> <label style={{color: "#0c1a13"}}>Happy Chatting!!</label></small></Typography> 
       </div>
    </div>
    {/* {name} */}
@@ -131,15 +170,15 @@ return (
 {/* //////////////////////////////////////////////////////////////// */}
 <input   className='inoputtrack11' type='text'  placeholder='Search for Your Friend '/> <br />
 <div className='List'>
-<Typography variant="h5" color='#fff'  component="h6">  <small style={{color: "#fff"}}>TOTAL FRIENDS: {data.length}</small></Typography>  <br />
+<Typography variant="h5" color='#fff'  component="h6">  <small style={{color: "#fff"}}>TOTAL FRIENDS: {data?.length}</small></Typography>  <br />
 {
-  data.map((datas) => (
+  data?.map((datas) => (
   
 
-    <div key={datas.id} >
-<div className='ava-space'>
+    <Link style={{textDecoration: "none"}} to={'/' + datas.addr} key={datas.id} >
+<div   className='ava-space'>
 <Avatar alt="Remy Sharp" className='avatar' style={{justifyContent: "center",  display: "flex"}}src={(require("/Users/macbook/chatapp/src/assets/Pixel-49.png"))} />
-<div className='Frineds'>
+<div onClick={() => setDatas(datas.addr) } className='Frineds'>
 <Typography variant="h5" color='#fff'  component="body">  <small style={{color: "#fff"}}></small> {datas.name}</Typography>  
 <CopyToClipboard text={datas.addr}>
 <Typography variant="body" color='#fff' component="h5">   {` ${datas.addr.substring(15,0)}.... ${datas.addr.substring(40)}`}
@@ -148,8 +187,8 @@ return (
 
   </div>
   </div> <br />
-  <hr /><br />
-  </div>
+  <hr style={{color: "#fff"}} /><br />
+  </Link>
 
 
 

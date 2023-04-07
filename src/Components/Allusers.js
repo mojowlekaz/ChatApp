@@ -121,7 +121,7 @@ console.log(tx);
                 </ul>
     
                </div> 
-               <Typography variant="h5" color='#fff' component="h6">Total User: {data.length}</Typography>
+               <Typography variant="h5" color='#fff' component="h6">Total User: {data?.length}</Typography>
     
     </div>
     
@@ -133,7 +133,7 @@ console.log(tx);
 
 
     {
-  data.map((datas) => (
+  data?.map((datas) => (
   
 
     <div key={datas.id} >

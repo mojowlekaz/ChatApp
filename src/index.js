@@ -11,6 +11,7 @@ import {ChatProvider } from "/Users/macbook/chatapp/src/Components/Mainpage.js"
 import Mainpage from './Components/Mainpage';
 import Allusers from './Components/Allusers';
 import AddFriend from './Components/AddFriend';
+import Chat from './Components/Chat';
 
 
 const router = createHashRouter([
@@ -30,6 +31,12 @@ const router = createHashRouter([
          {
     path: "*",
     element: <Error />
+      }, 
+               {
+    path: "/:id",
+    element: <Mainpage>
+      <Chat />
+    </Mainpage>
       }, 
       {
         path: "allusers",

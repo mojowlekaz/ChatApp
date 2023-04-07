@@ -1,9 +1,10 @@
 import React, {useEffect, createContext , useState} from 'react';
-import { Link, Typography } from '@mui/material'
+import { Typography } from '@mui/material'
 import "/Users/macbook/chatapp/src/Styles/Mainpage.css"
 import { Navigate } from 'react-router-dom';
 import {abi, CA} from "./ContextAbi.js"
-
+import Sidebar from './Sidebar.js';
+import {Link} from "react-router-dom";
 export const Context = createContext();
 
 
@@ -28,16 +29,23 @@ export default function Mainpage({children}) {
   const [walletAddress, setWalletAddress] = useState("")
   const [open, setOpen] = useState(false)
   const [go, setGo] = useState(false)
+  const [ShowComponent, setShowComponent] = useState(false)
   const [close, setClose] = useState(false)
   const [user, setUser] = useState(false)
   const [regerror, setRegError] = useState('')
   const [userName, setUserName] = useState(false)
 
   useEffect( () => {
-
+    const set = ( () => {
+      setClose(true)
+    })
+    setTimeout(() => {
+      setShowComponent(true);
+  } , 1000)
       connect();
       getUsername() 
       checkUserExist()
+      set()
   }, [])
 
 
@@ -134,8 +142,21 @@ console.log(tx);
 
   }
 
+
+
   return (
+    
     <Context.Provider value={{title, walletAddress, userName}}>  
+{
+  ShowComponent === true ?         <div className='pop'>
+  <Typography variant='body' component="body" color="#ff">
+ The dApp is deployed on Test Network, Please Connect to the Goerli ETH Network to have a full test of the dapp.<br />
+<Link to={"https://chainlist.org/chain/5"}>Check here to it Setup </Link> <br />
+ <button className='bttn' onClick={() => setShowComponent(false)}>X</button>
+    </Typography> 
+
+  </div>  : ""
+}
           {/* {children} */}
     <div className=''>
 
@@ -181,7 +202,11 @@ console.log(tx);
                   name.length > 3 ?   <button onClick={Register}><Typography variant=' body1' component="h3" >Create an Account</Typography> </button> :    
                ""
                 }
-
+{
+    walletAddress.length > 0 && userName.length > 0 ? 
+      <Link to={"/chat"}><button ><Typography variant=' body1' component="h3" > Login</Typography> </button> </Link> : ""
+    
+}
                </div>
                {
                  go  ? <Navigate to="/chat" replace={true} />: ""
